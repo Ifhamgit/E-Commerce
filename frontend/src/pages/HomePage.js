@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
-import wall from "../Assets/ecommerce.jpg";
+import wall from "../ecommerce.jpg";
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
