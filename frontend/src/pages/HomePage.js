@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
-
+import wall from "../Assets/ecommerce.jpg";
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
@@ -110,7 +110,7 @@ const HomePage = () => {
     <Layout title={"ALl Products - Best offers "}>
       {/* banner image */}
       <img
-        src="/images/banner.png"
+        src={wall}
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
