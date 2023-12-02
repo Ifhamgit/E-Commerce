@@ -1,14 +1,13 @@
-import { Checkbox, Radio } from "antd";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { AiOutlineReload } from "react-icons/ai";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import wall from "../Assets/ecommerce.jpg";
+import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
-import "../styles/Homepage.css";
+import axios from "axios";
+import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
+import { AiOutlineReload } from "react-icons/ai";
+import "../styles/Homepage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -111,15 +110,15 @@ const HomePage = () => {
     <Layout title={"ALl Products - Best offers "}>
       {/* banner image */}
       <img
-        src={wall}
-        className="banner-img text-center"
+        src="/images/banner.png"
+        className="banner-img"
         alt="bannerimage"
         width={"100%"}
       />
       {/* banner image */}
-      <div className="container-fluid text-info-emphasis row mt-3 home-page">
+      <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
-          <h4 className="text-center ">Filter By Category</h4>
+          <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
               <Checkbox
@@ -141,10 +140,19 @@ const HomePage = () => {
               ))}
             </Radio.Group>
           </div>
-          <div className="d-flex text-white flex-column">
+          <div className="d-flex flex-column">
             <button
-              className="btn btn-primary text-light"
-        {products?.map((p) => (
+              className="btn btn-danger"
+              onClick={() => window.location.reload()}
+            >
+              RESET FILTERS
+            </button>
+          </div>
+        </div>
+        <div className="col-md-9 ">
+          <h1 className="text-center">All Products</h1>
+          <div className="d-flex flex-wrap">
+            {products?.map((p) => (
               <div className="card m-2" key={p._id}>
                 <img
                   src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
